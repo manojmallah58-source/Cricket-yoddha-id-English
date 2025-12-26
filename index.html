@@ -239,7 +239,7 @@
   </header>
 <div class="video-container">
   <iframe
-    src="https://allrounderlive.pages.dev/player?url=https://hotstardz.cricketstream745.workers.dev/live.m3u8"
+    src="https://ss2hd-theta.vercel.app/"
     frameborder="0"
     allowfullscreen
     allow="autoplay; encrypted-media"
@@ -260,7 +260,7 @@
         align-items:center;
         margin-bottom:20px;
     ">
-        <h2 style="margin:0; font-size:20px; font-weight:600;">STAR SPORTS</h2>
+        <h2 style="margin:0; font-size:20px; font-weight:600;">STAR SPORTS ENGLISH</h2>
 
         <div style="
             background:#d1001f;
@@ -275,7 +275,7 @@
         </div>
     </div>
 
-    <!-- Telegram Block -->
+<!-- Telegram Block -->
     <div style="
         background:#212121;
         padding:18px 20px;
@@ -399,7 +399,8 @@ async function sharePageLink() {
             await navigator.share(shareData);
         } else {
             await navigator.clipboard.writeText(shareData.text + '\n\nLink: ' + shareData.url);
-            alert("Link and sharing text copied! You can now share it anywhere.");
+
+alert("Link and sharing text copied! You can now share it anywhere.");
         }
     } catch (err) {
         console.error('Share failed:', err);
@@ -408,4 +409,4 @@ async function sharePageLink() {
 }
   </script>
 </body>
-  </html>
+</html>
