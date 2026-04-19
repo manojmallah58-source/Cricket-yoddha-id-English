@@ -22,18 +22,18 @@
       font-family: 'Outfit', sans-serif;
       color: #fff;
       height: 100vh;
-      overflow: hidden; /* Scroll band karne ke liye */
+      overflow: hidden; 
       display: flex;
       flex-direction: column;
     }
 
-    /* HEADER - Slim */
+    /* HEADER */
     header {
       height: 45px;
       background: #000;
       border-bottom: 1px solid var(--border-color);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 12px;
+      padding: 0 12px; z-index: 100;
     }
     .menu-icon { font-size: 22px; color: #fff; cursor: pointer; }
     .logo-text { font-family: 'Rajdhani'; font-weight: 800; font-size: 18px; color: #fff; }
@@ -62,17 +62,14 @@
     }
     @keyframes scroll { 100% { transform: translateX(-100%); } }
 
-    /* MAIN CONTENT AREA */
+    /* MAIN CONTENT */
     .main-content {
-      flex: 1;
-      padding: 8px 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* Items ko barabar distribute karne ke liye */
-      gap: 6px;
+      flex: 1; padding: 6px 12px;
+      display: flex; flex-direction: column;
+      justify-content: space-evenly; gap: 4px;
     }
 
-    /* DAILY VIEWS */
+    /* VIEWS */
     .views-card {
       background: #0f0f0f; border: 1px solid var(--border-color);
       padding: 8px 12px; border-radius: 10px;
@@ -83,19 +80,18 @@
     .views-left span { font-size: 10px; font-weight: 700; color: #888; text-transform: uppercase; }
     .views-count { font-size: 16px; font-weight: 800; color: #fff; font-family: 'Rajdhani'; }
 
-    /* TELEGRAM BUTTON */
+    /* TG BUTTON */
     .btn-tg {
       background: var(--gold-main); color: #000;
       text-decoration: none; padding: 10px 15px; border-radius: 12px;
       display: flex; align-items: center; justify-content: space-between;
-      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
     }
     .tg-content { display: flex; align-items: center; gap: 10px; }
     .tg-icon { width: 30px; height: 30px; background: rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .tg-text h3 { font-size: 14px; font-weight: 800; font-family: 'Rajdhani'; text-transform: uppercase; line-height: 1; }
     .tg-text p { font-size: 8px; font-weight: 600; text-transform: uppercase; }
 
-    /* SHARE/REFRESH GRID */
+    /* GRID BUTTONS */
     .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .btn-small {
       background: #0f0f0f; border: 1px solid var(--border-color);
@@ -104,25 +100,37 @@
       font-weight: 700; font-size: 11px; text-transform: uppercase;
     }
 
-    /* --- PREMIUM BANNER (Adjusted for No-Scroll) --- */
-    .pfc-wrapper { margin: 2px 0; font-family: 'Montserrat', sans-serif; }
+    /* PREMIUM BANNER */
+    .pfc-wrapper { font-family: 'Montserrat', sans-serif; }
     .pfc-card {
         display: block; background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
         border: 2px solid #ffcc00; border-radius: 15px;
-        padding: 12px 15px; text-decoration: none !important; color: #ffffff !important;
-        text-align: center; box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+        padding: 10px 15px; text-decoration: none !important; color: #ffffff !important;
+        text-align: center;
     }
-    .pfc-header { display: flex; justify-content: center; align-items: center; margin-bottom: 5px; }
+    .pfc-header { display: flex; justify-content: center; align-items: center; margin-bottom: 4px; }
     .pfc-dot { height: 7px; width: 7px; background: #00ff00; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px #00ff00; animation: pfc-blink 1.2s infinite; }
-    .pfc-badge { font-size: 9px; font-weight: 800; color: #ffcc00; letter-spacing: 1px; }
+    .pfc-badge { font-size: 9px; font-weight: 800; color: #ffcc00; }
     .pfc-title { font-size: 14px; font-weight: 900; margin: 0; text-transform: uppercase; }
     .pfc-gold { color: #ffcc00; }
-    .pfc-subtitle { font-size: 9px; color: #aaaaaa; margin-bottom: 8px; }
-    .pfc-rules-box { background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 8px; margin-bottom: 10px; text-align: left; }
-    .pfc-item { font-size: 8.5px; margin-bottom: 4px; color: #e0e0e0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 2px; }
-    .pfc-item:last-child { margin-bottom: 0; border-bottom: none; }
-    .pfc-button { background: #ffcc00; color: #000; font-weight: 900; padding: 10px; border-radius: 8px; font-size: 12px; text-transform: uppercase; animation: pfc-shake 4s infinite; }
-    .pfc-hint { font-size: 8px; color: #666; margin-top: 5px; }
+    .pfc-rules-box { background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 6px; margin: 6px 0; text-align: left; }
+    .pfc-item { font-size: 8px; margin-bottom: 3px; color: #e0e0e0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .pfc-button { background: #ffcc00; color: #000; font-weight: 900; padding: 10px; border-radius: 8px; font-size: 11px; text-transform: uppercase; animation: pfc-shake 4s infinite; }
+
+    /* POPUP STYLES */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      z-index: 9999; display: none; align-items: center; justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      width: 85%; max-width: 320px; background: #111; border: 1px solid #333;
+      border-radius: 20px; padding: 25px; text-align: center;
+    }
+    .pop-btn { display: block; width: 100%; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; font-size: 13px; }
+    .pb-join { background: var(--gold-main); color: #000; }
+    .pb-close { background: transparent; color: #777; border: 1px solid #333; }
 
     @keyframes pfc-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     @keyframes pfc-shake { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
@@ -137,33 +145,39 @@
 </head>
 <body>
 
+  <!-- POPUP (10 SECOND DELAY) -->
+  <div class="modal-overlay" id="popup">
+    <div class="modal-box">
+      <div style="font-size: 40px; margin-bottom: 10px;">🏆</div>
+      <h2 style="font-family: 'Rajdhani'; color: gold; margin-bottom: 10px;">JOIN TELEGRAM</h2>
+      <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Backup links, HD streams aur daily winning teams ke liye join karein!</p>
+      <a href="#" class="pop-btn pb-join link-tg">Join Channel Now</a>
+      <button class="pop-btn pb-close" onclick="closePopup()">Already in Channel</button>
+    </div>
+  </div>
+
   <header>
     <i class="material-icons menu-icon" onclick="toggleMenu()">menu</i>
     <div class="logo-text">CRICKET <span>YODDHA</span></div>
     <div class="header-live"><div class="h-dot"></div> <span class="h-text">LIVE</span></div>
   </header>
 
-  <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
-    <a href="#" class="sb-link link-tg"><i class="material-icons">send</i> Telegram Channel</a>
-    <a href="javascript:location.reload()" class="sb-link"><i class="material-icons">refresh</i> Refresh Page</a>
-    <a href="javascript:sharePage()" class="sb-link"><i class="material-icons">share</i> Share With Friends</a>
+    <a href="#" class="sb-link link-tg"><i class="material-icons">send</i> Telegram</a>
+    <a href="javascript:location.reload()" class="sb-link"><i class="material-icons">refresh</i> Refresh</a>
+    <a href="javascript:sharePage()" class="sb-link"><i class="material-icons">share</i> Share App</a>
   </div>
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-  <!-- VIDEO -->
   <div class="video-container">
-    <iframe src="https://cricket-yoddha-channel-2.vercel.app/" allowfullscreen scrolling="no"></iframe>
+    <iframe src="https://cricket-yoddha-channel-1.vercel.app/" allowfullscreen scrolling="no"></iframe>
   </div>
 
-  <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-text">WELCOME TO CRICKET YODDHA 🏏 | JOIN TELEGRAM FOR HD BACKUP LINKS 🔗 | NO BUFFERING 🔥</div>
   </div>
 
-  <!-- MAIN CONTENT -->
   <div class="main-content">
-    
     <!-- VIEWS -->
     <div class="views-card">
       <div class="views-left"><i class="material-icons">bar_chart</i><span>Daily Views</span></div>
@@ -179,70 +193,7 @@
       <i class="material-icons">chevron_right</i>
     </a>
 
-    <!-- SHARE/REFRESH -->
+    <!-- GRID BUTTONS -->
     <div class="btn-grid">
       <a href="javascript:sharePage()" class="btn-small"><i class="material-icons">share</i> Share</a>
-      <a href="javascript:location.reload()" class="btn-small"><i class="material-icons">refresh</i> Refresh</a>
-    </div>
-
-    <!-- PREMIUM BANNER (As Requested) -->
-    <div class="pfc-wrapper">
-        <a href="https://t.me/Manoj_expert" target="_blank" class="pfc-card">
-            <div class="pfc-header">
-                <span class="pfc-dot"></span>
-                <span class="pfc-badge">VERIFIED PRIVATE CONTEST</span>
-            </div>
-            <h2 class="pfc-title">JOIN OUR <span class="pfc-gold">PREMIUM WINNING CLUB</span> 🏆</h2>
-            <p class="pfc-subtitle">Safe & Secure Dream11 Private Matches</p>
-            <div class="pfc-rules-box">
-                <div class="pfc-item">📋 <b>JOIN:</b> Pay Entry → Send SS → Get Code</div>
-                <div class="pfc-item">⏰ <b>DEADLINE:</b> 1 Hour Before Match Starts</div>
-                <div class="pfc-item">💰 <b>PAYOUT:</b> Winners Paid Next Day @ 10 AM</div>
-            </div>
-            <div class="pfc-cta">
-                <div class="pfc-button">MESSAGE ADMIN TO JOIN NOW</div>
-                <p class="pfc-hint">Click here to start chat with Verified Admin</p>
-            </div>
-        </a>
-    </div>
-
-  </div>
-
-  <!-- FIREBASE LOGIC -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-  <script>
-    const WEBSITE_ID = "yoddha_noscroll_pfc";
-    const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
-    document.querySelectorAll('.link-tg').forEach(el => el.href = TELEGRAM_LINK);
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-      document.getElementById('overlay').classList.toggle('active');
-    }
-
-    async function sharePage() {
-      if(navigator.share) await navigator.share({title:'Live Cricket', url: window.location.href});
-      else alert("Link Copied!");
-    }
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8",
-      authDomain: "my-website-cricket.firebaseapp.com",
-      databaseURL: "https://my-website-cricket-default-rtdb.firebaseio.com",
-      projectId: "my-website-cricket",
-      storageBucket: "my-website-cricket.appspot.com",
-      messagingSenderId: "664276981494",
-      appId: "1:664276981494:web:4d6b5cd5c55f6b6b18fed7"
-    };
-
-    if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    const todayStr = new Date().toISOString().slice(0, 10); 
-    const visitRef = db.ref('daily_stats_v7/' + WEBSITE_ID + '/' + todayStr);
-    visitRef.transaction(c => (c || 0) + 1);
-    visitRef.on('value', s => { document.getElementById('total-views-count').innerText = (s.val() || 0).toLocaleString(); });
-  </script>
-</body>
-</html>
+      <a href="javascript:location.reload()" class="btn-small"><i class="material
