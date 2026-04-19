@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>CRICKET YODDHA - Premium</title>
+  <title>CRICKET YODDHA - Premium Live</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800&family=Outfit:wght@400;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -27,13 +27,32 @@
       flex-direction: column;
     }
 
+    /* POPUP STYLES (ENGLISH) */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+      z-index: 9999; display: none; align-items: center; justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      width: 85%; max-width: 320px; background: #111; border: 1px solid #333;
+      border-radius: 20px; padding: 25px; text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,1);
+    }
+    .pop-icon { font-size: 50px; margin-bottom: 10px; display: block; }
+    .pop-title { font-family: 'Rajdhani'; color: var(--gold-main); font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+    .pop-desc { font-size: 13px; color: #bbb; margin-bottom: 25px; line-height: 1.5; }
+    .pop-btn { display: block; width: 100%; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; font-size: 13px; font-family: 'Rajdhani'; transition: 0.3s; }
+    .pb-join { background: var(--gold-main); color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
+    .pb-close { background: transparent; color: #666; border: 1px solid #333; cursor: pointer; }
+
     /* HEADER */
     header {
       height: 45px;
       background: #000;
       border-bottom: 1px solid var(--border-color);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 12px; z-index: 100;
+      padding: 0 12px;
     }
     .menu-icon { font-size: 22px; color: #fff; cursor: pointer; }
     .logo-text { font-family: 'Rajdhani'; font-weight: 800; font-size: 18px; color: #fff; }
@@ -64,12 +83,12 @@
 
     /* MAIN CONTENT */
     .main-content {
-      flex: 1; padding: 6px 12px;
+      flex: 1; padding: 8px 12px;
       display: flex; flex-direction: column;
-      justify-content: space-evenly; gap: 4px;
+      justify-content: space-between; gap: 6px;
     }
 
-    /* VIEWS */
+    /* DAILY VIEWS */
     .views-card {
       background: #0f0f0f; border: 1px solid var(--border-color);
       padding: 8px 12px; border-radius: 10px;
@@ -80,7 +99,7 @@
     .views-left span { font-size: 10px; font-weight: 700; color: #888; text-transform: uppercase; }
     .views-count { font-size: 16px; font-weight: 800; color: #fff; font-family: 'Rajdhani'; }
 
-    /* TG BUTTON */
+    /* TELEGRAM BUTTON */
     .btn-tg {
       background: var(--gold-main); color: #000;
       text-decoration: none; padding: 10px 15px; border-radius: 12px;
@@ -91,7 +110,7 @@
     .tg-text h3 { font-size: 14px; font-weight: 800; font-family: 'Rajdhani'; text-transform: uppercase; line-height: 1; }
     .tg-text p { font-size: 8px; font-weight: 600; text-transform: uppercase; }
 
-    /* GRID BUTTONS */
+    /* SHARE/REFRESH GRID */
     .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .btn-small {
       background: #0f0f0f; border: 1px solid var(--border-color);
@@ -105,32 +124,17 @@
     .pfc-card {
         display: block; background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
         border: 2px solid #ffcc00; border-radius: 15px;
-        padding: 10px 15px; text-decoration: none !important; color: #ffffff !important;
-        text-align: center;
+        padding: 12px 15px; text-decoration: none !important; color: #ffffff !important;
+        text-align: center; box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
     }
-    .pfc-header { display: flex; justify-content: center; align-items: center; margin-bottom: 4px; }
+    .pfc-header { display: flex; justify-content: center; align-items: center; margin-bottom: 5px; }
     .pfc-dot { height: 7px; width: 7px; background: #00ff00; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px #00ff00; animation: pfc-blink 1.2s infinite; }
-    .pfc-badge { font-size: 9px; font-weight: 800; color: #ffcc00; }
+    .pfc-badge { font-size: 9px; font-weight: 800; color: #ffcc00; letter-spacing: 1px; }
     .pfc-title { font-size: 14px; font-weight: 900; margin: 0; text-transform: uppercase; }
     .pfc-gold { color: #ffcc00; }
-    .pfc-rules-box { background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 6px; margin: 6px 0; text-align: left; }
-    .pfc-item { font-size: 8px; margin-bottom: 3px; color: #e0e0e0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-    .pfc-button { background: #ffcc00; color: #000; font-weight: 900; padding: 10px; border-radius: 8px; font-size: 11px; text-transform: uppercase; animation: pfc-shake 4s infinite; }
-
-    /* POPUP STYLES */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
-      z-index: 9999; display: none; align-items: center; justify-content: center;
-      backdrop-filter: blur(8px);
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-box {
-      width: 85%; max-width: 320px; background: #111; border: 1px solid #333;
-      border-radius: 20px; padding: 25px; text-align: center;
-    }
-    .pop-btn { display: block; width: 100%; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; font-size: 13px; }
-    .pb-join { background: var(--gold-main); color: #000; }
-    .pb-close { background: transparent; color: #777; border: 1px solid #333; }
+    .pfc-rules-box { background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 8px; margin-bottom: 10px; text-align: left; }
+    .pfc-item { font-size: 8.5px; margin-bottom: 4px; color: #e0e0e0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 2px; }
+    .pfc-button { background: #ffcc00; color: #000; font-weight: 900; padding: 10px; border-radius: 8px; font-size: 12px; text-transform: uppercase; animation: pfc-shake 4s infinite; }
 
     @keyframes pfc-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     @keyframes pfc-shake { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
@@ -145,14 +149,14 @@
 </head>
 <body>
 
-  <!-- POPUP (10 SECOND DELAY) -->
+  <!-- ENGLISH POPUP (10 SEC DELAY) -->
   <div class="modal-overlay" id="popup">
     <div class="modal-box">
-      <div style="font-size: 40px; margin-bottom: 10px;">🏆</div>
-      <h2 style="font-family: 'Rajdhani'; color: gold; margin-bottom: 10px;">JOIN TELEGRAM</h2>
-      <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Backup links, HD streams aur daily winning teams ke liye join karein!</p>
+      <span class="pop-icon">🏆</span>
+      <h2 class="pop-title">Join Telegram</h2>
+      <p class="pop-desc">Join our official channel for HD backup links, live match updates, and daily winning teams!</p>
       <a href="#" class="pop-btn pb-join link-tg">Join Channel Now</a>
-      <button class="pop-btn pb-close" onclick="closePopup()">Already in Channel</button>
+      <button class="pop-btn pb-close" onclick="closePopup()">I'm already a member</button>
     </div>
   </div>
 
@@ -163,14 +167,14 @@
   </header>
 
   <div class="sidebar" id="sidebar">
-    <a href="#" class="sb-link link-tg"><i class="material-icons">send</i> Telegram</a>
-    <a href="javascript:location.reload()" class="sb-link"><i class="material-icons">refresh</i> Refresh</a>
+    <a href="#" class="sb-link link-tg"><i class="material-icons">send</i> Telegram Channel</a>
+    <a href="javascript:location.reload()" class="sb-link"><i class="material-icons">refresh</i> Refresh Page</a>
     <a href="javascript:sharePage()" class="sb-link"><i class="material-icons">share</i> Share App</a>
   </div>
   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
   <div class="video-container">
-    <iframe src="https://cricket-yoddha-channel-1.vercel.app/" allowfullscreen scrolling="no"></iframe>
+    <iframe src="https://ipl1.pages.dev/4?id=1EHD" allowfullscreen scrolling="no"></iframe>
   </div>
 
   <div class="ticker-wrap">
@@ -178,13 +182,12 @@
   </div>
 
   <div class="main-content">
-    <!-- VIEWS -->
+    
     <div class="views-card">
       <div class="views-left"><i class="material-icons">bar_chart</i><span>Daily Views</span></div>
       <div class="views-count" id="total-views-count">...</div>
     </div>
 
-    <!-- TG BUTTON -->
     <a href="#" class="btn-tg link-tg">
       <div class="tg-content">
         <div class="tg-icon"><i class="material-icons">send</i></div>
@@ -193,7 +196,77 @@
       <i class="material-icons">chevron_right</i>
     </a>
 
-    <!-- GRID BUTTONS -->
     <div class="btn-grid">
       <a href="javascript:sharePage()" class="btn-small"><i class="material-icons">share</i> Share</a>
-      <a href="javascript:location.reload()" class="btn-small"><i class="material
+      <a href="javascript:location.reload()" class="btn-small"><i class="material-icons">refresh</i> Refresh</a>
+    </div>
+
+    <div class="pfc-wrapper">
+        <a href="https://t.me/Manoj_expert" target="_blank" class="pfc-card">
+            <div class="pfc-header">
+                <span class="pfc-dot"></span><span class="pfc-badge">VERIFIED PRIVATE CONTEST</span>
+            </div>
+            <h2 class="pfc-title">JOIN OUR <span class="pfc-gold">PREMIUM WINNING CLUB</span> 🏆</h2>
+            <div class="pfc-rules-box">
+                <div class="pfc-item">📋 <b>JOIN:</b> Pay Entry → Send SS → Get Code</div>
+                <div class="pfc-item">⏰ <b>DEADLINE:</b> 1 Hour Before Match Starts</div>
+                <div class="pfc-item">💰 <b>PAYOUT:</b> Winners Paid Next Day @ 10 AM</div>
+            </div>
+            <div class="pfc-button">MESSAGE ADMIN TO JOIN NOW</div>
+        </a>
+    </div>
+
+  </div>
+
+  <!-- FIREBASE & LOGIC -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    const WEBSITE_ID = "yoddha_final_eng";
+    const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
+    document.querySelectorAll('.link-tg').forEach(el => el.href = TELEGRAM_LINK);
+
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function closePopup() {
+      document.getElementById('popup').classList.remove('active');
+      sessionStorage.setItem('pop_shown_eng', 'true');
+    }
+
+    window.onload = () => {
+      setTimeout(() => {
+        if(!sessionStorage.getItem('pop_shown_eng')) {
+          document.getElementById('popup').classList.add('active');
+        }
+      }, 10000); // 10 Seconds Delay
+    };
+
+    async function sharePage() {
+      if(navigator.share) await navigator.share({title:'Live Cricket', url: window.location.href});
+      else alert("Link Copied!");
+    }
+
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8",
+      authDomain: "my-website-cricket.firebaseapp.com",
+      databaseURL: "https://my-website-cricket-default-rtdb.firebaseio.com",
+      projectId: "my-website-cricket",
+      storageBucket: "my-website-cricket.appspot.com",
+      messagingSenderId: "664276981494",
+      appId: "1:664276981494:web:4d6b5cd5c55f6b6b18fed7"
+    };
+
+    if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const todayStr = new Date().toISOString().slice(0, 10); 
+    const visitRef = db.ref('daily_stats_eng/' + WEBSITE_ID + '/' + todayStr);
+    visitRef.transaction(c => (c || 0) + 1);
+    visitRef.on('value', s => { document.getElementById('total-views-count').innerText = (s.val() || 0).toLocaleString(); });
+  </script>
+</body>
+</html>
